@@ -11,7 +11,7 @@
 
         public void AddPhone(string phoneNumber, PhoneTypeBaseEnum phoneType)
         {
-            _phones.Add(PhoneMaker(phoneNumber, phoneType));
+            _phones.Add(new Phone(phoneNumber, phoneType));
         }
 
         public List<Phone> GetAllPhones()
@@ -21,22 +21,13 @@
 
         public List<Phone> GetAllPhonesByType(PhoneTypeBaseEnum phoneType)
         {
-            var phonesByType = _phones.Where(phone => phone.PhoneType == phoneType).ToList();
+            var phonesByType = _phones.Where(phone => phone.GetPhoneType() == phoneType).ToList();
             return phonesByType;
         }
 
         public void RemovePhone(string phoneNumber, PhoneTypeBaseEnum phoneType)
         {
-            _phones.Remove(PhoneMaker(phoneNumber, phoneType));
-        }
-
-        private static Phone PhoneMaker(string phoneNumber, PhoneTypeBaseEnum phoneType)
-        {
-            return new Phone
-            {
-                PhoneNumber = phoneNumber,
-                PhoneType = phoneType
-            };
+            _phones.Remove(new Phone(phoneNumber, phoneType));
         }
     }
 }

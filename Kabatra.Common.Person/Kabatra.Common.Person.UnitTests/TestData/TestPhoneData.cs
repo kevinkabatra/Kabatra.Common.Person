@@ -4,34 +4,10 @@
 
     public class TestPhoneData
     {
-        public static readonly Phone CellPhoneOne = new()
-        {
-            PhoneType = PhoneTypeBaseEnum.Cell,
-            PhoneNumber = "(123) 123-1234"
-        };
-
-        public static readonly Phone CellPhoneTwo = new()
-        {
-            PhoneType = PhoneTypeBaseEnum.Cell,
-            PhoneNumber = "(321) 321-4321"
-        };
-
-        public static readonly Phone HomePhone = new()
-        {
-            PhoneType = PhoneTypeBaseEnum.Home,
-            PhoneNumber = "(213) 213-2134"
-        };
-
-        public static readonly Phone OfficePhone = new()
-        {
-            PhoneType = PhoneTypeBaseEnum.Office,
-            PhoneNumber = "(312) 312-3124"
-        };
-
-        public static readonly Phone OtherPhone = new()
-        {
-            PhoneType = PhoneTypeBaseEnum.Other,
-            PhoneNumber = "(000) 000-0000"
-        };
+        public static readonly Phone CellPhoneOne = new("(123) 123-1234", PhoneTypeBaseEnum.Cell);
+        public static readonly Phone CellPhoneTwo = new("(321) 321-4321", PhoneTypeBaseEnum.Cell);
+        public static readonly Phone HomePhone = new("(213) 213-2134", PhoneTypeBaseEnum.Home);
+        public static readonly Phone OfficePhone = new("(312) 312-3124", PhoneTypeBaseEnum.Office);
+        public static readonly Phone OtherPhone = new("(000) 000-0000", PhoneTypeBaseEnum.Other);
     }
 }

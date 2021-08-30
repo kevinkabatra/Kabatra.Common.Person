@@ -18,22 +18,22 @@
         public void CanAddNumberToContactInformation()
         {
             var contactInformation = new ContactInformation();
-            contactInformation.AddPhone(TestPhoneData.CellPhoneOne.PhoneNumber, TestPhoneData.CellPhoneOne.PhoneType);
+            contactInformation.AddPhone(TestPhoneData.CellPhoneOne.GetPhoneNumber(), TestPhoneData.CellPhoneOne.GetPhoneType());
 
             var actualPhone = contactInformation.GetAllPhones().First();
 
-            Assert.Equal(TestPhoneData.CellPhoneOne.PhoneType, actualPhone.PhoneType);
-            Assert.Equal(TestPhoneData.CellPhoneOne.PhoneNumber, actualPhone.PhoneNumber);
+            Assert.Equal(TestPhoneData.CellPhoneOne.GetPhoneType(), actualPhone.GetPhoneType());
+            Assert.Equal(TestPhoneData.CellPhoneOne.GetPhoneNumber(), actualPhone.GetPhoneNumber());
         }
 
         [Fact]
         public void CanAddAllSupportedPhoneTypes()
         {
             var contactInformation = new ContactInformation();
-            contactInformation.AddPhone(TestPhoneData.CellPhoneOne.PhoneNumber, TestPhoneData.CellPhoneOne.PhoneType);
-            contactInformation.AddPhone(TestPhoneData.HomePhone.PhoneNumber, TestPhoneData.HomePhone.PhoneType);
-            contactInformation.AddPhone(TestPhoneData.OfficePhone.PhoneNumber, TestPhoneData.OfficePhone.PhoneType);
-            contactInformation.AddPhone(TestPhoneData.OtherPhone.PhoneNumber, TestPhoneData.OtherPhone.PhoneType);
+            contactInformation.AddPhone(TestPhoneData.CellPhoneOne.GetPhoneNumber(), TestPhoneData.CellPhoneOne.GetPhoneType());
+            contactInformation.AddPhone(TestPhoneData.HomePhone.GetPhoneNumber(), TestPhoneData.HomePhone.GetPhoneType());
+            contactInformation.AddPhone(TestPhoneData.OfficePhone.GetPhoneNumber(), TestPhoneData.OfficePhone.GetPhoneType());
+            contactInformation.AddPhone(TestPhoneData.OtherPhone.GetPhoneNumber(), TestPhoneData.OtherPhone.GetPhoneType());
 
             var actualPhones = contactInformation.GetAllPhones();
 
@@ -41,47 +41,39 @@
         }
 
         [Fact]
+        public void CanAddMultipleOfSameSupportedPhoneType()
+        {
+            var contactInformation = new ContactInformation();
+            contactInformation.AddPhone(TestPhoneData.CellPhoneOne.GetPhoneNumber(), TestPhoneData.CellPhoneOne.GetPhoneType());
+            contactInformation.AddPhone(TestPhoneData.CellPhoneTwo.GetPhoneNumber(), TestPhoneData.CellPhoneTwo.GetPhoneType());
+            
+            var actualPhones = contactInformation.GetAllPhones();
+
+            Assert.Equal(2, actualPhones.Count);
+        }
+
+        [Fact]
         public void CanGetPhoneByType()
         {
             var contactInformation = new ContactInformation();
-            contactInformation.AddPhone(TestPhoneData.CellPhoneOne.PhoneNumber, TestPhoneData.CellPhoneOne.PhoneType);
-            contactInformation.AddPhone(TestPhoneData.HomePhone.PhoneNumber, TestPhoneData.HomePhone.PhoneType);
+            contactInformation.AddPhone(TestPhoneData.CellPhoneOne.GetPhoneNumber(), TestPhoneData.CellPhoneOne.GetPhoneType());
+            contactInformation.AddPhone(TestPhoneData.HomePhone.GetPhoneNumber(), TestPhoneData.HomePhone.GetPhoneType());
 
             var actualPhone = contactInformation.GetAllPhonesByType(PhoneTypeBaseEnum.Cell).First();
 
-            Assert.Equal(TestPhoneData.CellPhoneOne.PhoneType, actualPhone.PhoneType);
-            Assert.Equal(TestPhoneData.CellPhoneOne.PhoneNumber, actualPhone.PhoneNumber);
+            Assert.Equal(TestPhoneData.CellPhoneOne.GetPhoneType(), actualPhone.GetPhoneType());
+            Assert.Equal(TestPhoneData.CellPhoneOne.GetPhoneNumber(), actualPhone.GetPhoneNumber());
         }
 
         [Fact]
         public void CanRemovePhone()
         {
             var contactInformation = new ContactInformation();
-            contactInformation.AddPhone(TestPhoneData.CellPhoneOne.PhoneNumber, TestPhoneData.CellPhoneOne.PhoneType);
-            contactInformation.RemovePhone(TestPhoneData.CellPhoneOne.PhoneNumber, TestPhoneData.CellPhoneOne.PhoneType);
-
-            var phoneOne = new Phone()
-            {
-                PhoneType = PhoneTypeBaseEnum.Cell,
-                PhoneNumber = "(000) 000-0000"
-            };
-
-            var phoneTwo = new Phone()
-            {
-                PhoneType = PhoneTypeBaseEnum.Cell,
-                PhoneNumber = "(000) 000-0000"
-            };
-
-            // PhoneOne and PhoneTwo do not return as equal, possibly because it is a custom object. See the following for more information
-            // Stack: https://stackoverflow.com/questions/10454519/best-way-to-compare-two-complex-objects 
-            // Microsoft Doc: https://docs.microsoft.com/en-us/dotnet/api/system.object.equals?view=net-5.0
-            var value = phoneOne.Equals(phoneTwo);
-
-            Assert.Equal(phoneOne, phoneTwo);
+            contactInformation.AddPhone(TestPhoneData.CellPhoneOne.GetPhoneNumber(), TestPhoneData.CellPhoneOne.GetPhoneType());
+            contactInformation.RemovePhone(TestPhoneData.CellPhoneOne.GetPhoneNumber(), TestPhoneData.CellPhoneOne.GetPhoneType());
 
             var actualPhones = contactInformation.GetAllPhones();
-
-            //Assert.Empty(actualPhones);
+            Assert.Empty(actualPhones);
         }
     }
 }
