@@ -3,11 +3,9 @@
     using System.Collections.Generic;
     using System.Linq;
 
-    public class ContactInformation
+    public partial class ContactInformation
     {
         private readonly List<Phone> _phones = new();
-        
-        public List<string> Emails { get; set; }
 
         public void AddPhone(string phoneNumber, PhoneTypeBaseEnum phoneType)
         {
