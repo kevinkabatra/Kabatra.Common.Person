@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30621.155
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kabatra.Common.Person", "Kabatra.Common.Person\Kabatra.Common.Person.csproj", "{DBDFF6ED-FF2A-4FD4-8514-E52D7A66FB2C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kabatra.Common.Person.UnitTests", "Kabatra.Common.Person.UnitTests\Kabatra.Common.Person.UnitTests.csproj", "{FC3EDC8B-7DE7-45CD-B392-108DF1ECA988}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DBDFF6ED-FF2A-4FD4-8514-E52D7A66FB2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBDFF6ED-FF2A-4FD4-8514-E52D7A66FB2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBDFF6ED-FF2A-4FD4-8514-E52D7A66FB2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBDFF6ED-FF2A-4FD4-8514-E52D7A66FB2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC3EDC8B-7DE7-45CD-B392-108DF1ECA988}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC3EDC8B-7DE7-45CD-B392-108DF1ECA988}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC3EDC8B-7DE7-45CD-B392-108DF1ECA988}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC3EDC8B-7DE7-45CD-B392-108DF1ECA988}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9FF25DD0-F625-44D5-BE64-28FD255FA343}
+	EndGlobalSection
+EndGlobal
