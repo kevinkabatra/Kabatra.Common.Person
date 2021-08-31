@@ -11,7 +11,7 @@
 
         public static readonly MailAddress EmailTwo = new(
             "fakeEmailTwo@null.com",
-            (TestPersonData.FakeFirstName + " " + TestPersonData.FakeLastName)
+            (TestPersonData.PersonOneFirstName + " " + TestPersonData.PersonOneLastName)
         );
     }
 }

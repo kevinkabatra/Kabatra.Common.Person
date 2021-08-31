@@ -23,11 +23,9 @@
             {
                 return false;
             }
-            else
-            {
-                return _phoneNumber.Equals(phone.GetPhoneNumber()) 
-                       && _phoneType.Equals(phone.GetPhoneType());
-            }
+
+            return _phoneNumber.Equals(phone.GetPhoneNumber()) 
+                   && _phoneType.Equals(phone.GetPhoneType());
         }
 
         /// <summary>

@@ -1,19 +1,12 @@
-﻿namespace Kabatra.Common.Person.UnitTests
+﻿namespace Kabatra.Common.Person.UnitTests.Person
 {
     using System.Linq;
+    using Common.Person.Person;
     using TestData;
     using Xunit;
 
-    public class PersonTests
+    public class PersonContactTests
     {
-        [Fact]
-        public void CanCreatePerson()
-        {
-            var person = new Person(TestPersonData.KevinFirstName, TestPersonData.KevinLastName);
-
-            Assert.NotNull(person);
-        }
-
         [Fact]
         public void CanAddEmail()
         {
