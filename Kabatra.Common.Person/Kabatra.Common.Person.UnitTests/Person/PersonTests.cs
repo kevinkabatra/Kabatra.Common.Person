@@ -1,6 +1,5 @@
 ﻿namespace Kabatra.Common.Person.UnitTests.Person
 {
-    using System.Linq;
     using Common.Person.Person;
     using TestData;
     using Xunit;

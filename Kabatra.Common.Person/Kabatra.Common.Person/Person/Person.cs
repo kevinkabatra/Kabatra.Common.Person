@@ -32,10 +32,15 @@
         {
             if (month != 0)
             {
-                _dateOfBirth = new DateOnly(year, month, day);
+                DateOfBirth(new DateOnly(year, month, day));
             }
 
             return _dateOfBirth;
+        }
+
+        public void DateOfBirth(DateOnly dateOfBirth)
+        {
+            _dateOfBirth = dateOfBirth;
         }
 
         public DateOnly DateOfDeath(int month = 0, int day = 0, int year = 0)
@@ -46,6 +51,11 @@
             }
 
             return _dateOfDeath;
+        }
+
+        public void DateOfDeath(DateOnly dateOfDeath)
+        {
+            _dateOfDeath = dateOfDeath;
         }
 
         public string Name()
